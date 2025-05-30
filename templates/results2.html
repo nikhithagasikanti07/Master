@@ -1,0 +1,390 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Prediction Result</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+  body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: url('../static/images/h.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+    }
+
+    header {
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 15px 0;
+      text-align: center;
+      font-size: 2em;
+      color: #ffffff;
+      text-shadow: 2px 2px 6px black;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 10px 0;
+    }
+
+    nav a {
+      margin: 0 12px;
+      padding: 10px 16px;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 6px;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    nav a:hover {
+      background-color: #00cec9;
+      transform: scale(1.05);
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: calc(100vh - 160px);
+      text-align: center;
+      padding: 20px;
+    }
+
+    .container h1 {
+      font-size: 2.5em;
+      text-shadow: 2px 2px 8px #000;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 1.2em;
+      margin-bottom: 15px;
+    }
+
+    input[type="file"] {
+      padding: 10px;
+      font-size: 1em;
+      border-radius: 8px;
+      border: none;
+      background-color: #fff;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .upload-btn input[type="submit"] {
+      background-color: #0984e3;
+      color: white;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 10px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .upload-btn input[type="submit"]:hover {
+      background-color: #00cec9;
+      transform: scale(1.05);
+    }
+
+    /* Image Styling */
+    .image-container {
+      max-width: 500px;
+      margin: 20px auto;
+      border: 5px solid #fff;
+      border-radius: 10px;
+      padding: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    }
+
+    .image-container img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    /* Graph Styling */
+    .graph-container {
+      width: 80%;
+      max-width: 700px;
+      margin: 20px auto;
+      background-color: white; /* Set the background of the graph container to white */
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    canvas {
+      width: 100% !important;
+      height: auto !important;
+      border-radius: 8px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <header></header>
+  <nav>
+    <a href="/uh">Home</a>
+    <a href="/logina">Login</a>
+    <a href="/predicta">Image</a>
+    <a href="/predictb">Text</a>
+    <a href="/predictc">History</a>
+    <a href="/logouta">Logout</a>
+  </nav>
+
+  <div class="container">
+    <h1>Dish Name: {{ prediction }}</h1>
+
+
+
+    <div class="graph-container">
+      <h2>Bar Chart</h2>
+      <canvas id="barChart"></canvas>
+    </div>
+
+    <div class="graph-container">
+      <h2>Pie Chart</h2>
+      <canvas id="pieChart"></canvas>
+    </div>
+  </div> 
+
+  <script>
+    const nutrientData = {{ nutrients | tojson }};
+
+    const labels = Object.keys(nutrientData);
+    const values = Object.values(nutrientData);
+
+    // Bar Chart
+    new Chart(document.getElementById('barChart'), {
+      type: 'bar',
+      data: {
+        labels: labels,
+        datasets: [{
+          label: '',
+          data: values,
+          backgroundColor: '#00b894'
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          title: {
+            display: true,
+            text: 'Nutritional Breakdown'
+          }
+        },
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+
+    // // Pie Chart
+    new Chart(document.getElementById('pieChart'), {
+      type: 'pie',
+      data: {
+        labels: labels,
+        datasets: [{
+          label: 'Nutrition',
+          data: values,
+          backgroundColor: [
+            '#6c5ce7', '#00cec9', '#fdcb6e', '#d63031',
+            '#0984e3', '#e84393', '#2d3436', '#fab1a0',
+            '#81ecec', '#a29bfe'
+          ]
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          title: {
+            display: true,
+            text: 'Nutrition Pie Chart'
+          }
+        }
+      }
+    });
+  </script>
+
+</body>
+</html> -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>SNACKALYZER</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: url('../static/images/so.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+        }
+
+        header {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 15px 0;
+            text-align: center;
+            font-size: 2em;
+            color: #ffffff;
+            text-shadow: 2px 2px 6px black;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 10px 0;
+        }
+
+        nav a {
+            margin: 0 12px;
+            padding: 10px 16px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 6px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        nav a:hover {
+            background-color: #00cec9;
+            transform: scale(1.05);
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: calc(100vh - 160px);
+            text-align: center;
+            padding: 20px;
+        }
+
+        .container h1 {
+            font-size: 2.5em;
+            text-shadow: 2px 2px 8px #000;
+            margin-bottom: 20px;
+        }
+
+        .graph-container {
+            width: 80%;
+            max-width: 700px;
+            margin: 20px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        canvas {
+            width: 100% !important;
+            height: auto !important;
+            border-radius: 8px;
+        }
+
+        .nutrient-text {
+            width: 80%;
+            max-width: 700px;
+            margin: 20px auto;
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: left;
+        }
+
+        .nutrient-text h2 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 2px black;
+        }
+
+        .nutrient-text p {
+            font-size: 1.1em;
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <header></header>
+    <nav>
+        <a href="/menua">Home</a>
+        <a href="/healtha">Health</a> 
+        <a href="/sola">Solution</a> 
+        <a href="/predicta">Image</a>
+        <a href="/predictb">Text</a>
+        <a href="/predictc">History</a>
+        <a href="/abouta">About</a> 
+        <a href="/logouta">Logout</a>
+    </nav>
+
+    <div class="container">
+        <h1>Dish Name: {{ prediction }}</h1>
+
+        <div class="nutrient-text">
+            <h2>Nutritional Information</h2>
+            {% for key, value in nutrients.items() %}
+                <p><strong>{{ key }}:</strong> {{ value }}</p>
+            {% endfor %}
+        </div>
+
+        <div class="graph-container">
+            <h2>Bar Chart</h2>
+            <canvas id="barChart"></canvas>
+        </div>
+    </div>
+
+    <script>
+        const nutrientData = {{ nutrients | tojson }};
+        const labels = Object.keys(nutrientData);
+        const values = Object.values(nutrientData);
+
+        // Bar Chart
+        new Chart(document.getElementById('barChart'), {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: '',
+                    data: values,
+                    backgroundColor: '#00b894'
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Nutritional Breakdown'
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>

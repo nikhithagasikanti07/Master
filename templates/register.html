@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SNACKALYZER</title>
+    <style>
+        /* Base Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: url('../static/images/so.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            display: flex; /* Enable flexbox for centering the container */
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+            min-height: 100vh; /* Ensure the body takes up at least the full viewport height */
+        }
+
+        /* Container */
+        .container {
+            max-width: 400px;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Heading */
+        h2 {
+            font-size: 2em;
+            color: #00cec9;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 3px black;
+        }
+
+        /* Form Elements */
+        label {
+            font-size: 1.2em;
+            margin: 10px 0 5px;
+            display: block;
+            text-align: left; /* Align labels to the left for better readability */
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: calc(100% - 24px); /* Adjust width for padding */
+            padding: 12px;
+            margin-bottom: 15px;
+            background-color: #333;
+            border: 2px solid #444;
+            border-radius: 8px;
+            color: white;
+            font-size: 1.1em;
+            box-sizing: border-box; /* Ensure padding doesn't increase the overall width */
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 14px;
+            background-color: #00cec9;
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-size: 1.3em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #00b8a9;
+        }
+
+        /* Link and Paragraph */
+        p {
+            font-size: 1.1em;
+            color: #b2bec3;
+            margin-top: 15px; /* Add some space above the paragraph */
+        }
+
+        a {
+            color: #00cec9;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Header (if you intend to use it on this page) */
+        header {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px 0;
+            text-align: center;
+            font-size: 2.5em;
+            color: #ffffff;
+            text-shadow: 2px 2px 6px black;
+            /* If you want to center the header too, you might need to adjust its positioning */
+        }
+
+        /* Navigation (if you intend to use it on this page) */
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 12px 0;
+        }
+
+        nav a {
+            margin: 0 15px;
+            padding: 12px 20px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 6px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        nav a:hover {
+            background-color: #00cec9;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Register</h2>
+        <form action="./register" method="post">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <input type="submit" id="signup" value="Register">
+
+            <div>
+                <p>Already have an account? <a href="/logina">Login here</a></p>
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>

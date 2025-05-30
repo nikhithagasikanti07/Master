@@ -1,0 +1,589 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SNACKALYZER</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+      background: url('../static/images/so.jpg') no-repeat center center fixed;
+      background-size: cover;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: white;
+    }
+
+    .login-container {
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 40px;
+      border-radius: 15px;
+      width: 350px;
+      box-shadow: 0 0 25px rgba(0,0,0,0.6);
+    }
+
+    header {
+      text-align: center;
+      font-size: 2.2em;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 6px #000;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 1.8em;
+      margin-bottom: 25px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      margin-bottom: 5px;
+      font-weight: bold;
+      color: #f0f0f0;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      padding: 12px;
+      margin-bottom: 20px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1em;
+    }
+
+    input[type="submit"] {
+      padding: 12px;
+      background-color: #00cec9;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.1em;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #00b894;
+      transform: scale(1.05);
+    }
+
+    .register-link {
+      text-align: center;
+      margin-top: 15px;
+      font-size: 0.95em;
+    }
+
+    .register-link a {
+      color: #81ecec;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .register-link a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h2>Login</h2>
+    <form action="/login" method="post">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" required>
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required>
+
+      <input type="submit" value="Login">
+
+      <div class="register-link">
+        <p>Don't have an account? <a href="/registera">Create New Account</a></p>
+      </div>
+    </form>
+  </div>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SNACKALYZER</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+      background: url('../static/images/so.jpg') no-repeat center center fixed;
+      background-size: cover;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: white;
+    }
+
+    .login-container {
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 40px;
+      border-radius: 15px;
+      width: 350px;
+      box-shadow: 0 0 25px rgba(0,0,0,0.6);
+    }
+
+    header {
+      text-align: center;
+      font-size: 2.2em;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 6px #000;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 1.8em;
+      margin-bottom: 25px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      margin-bottom: 5px;
+      font-weight: bold;
+      color: #f0f0f0;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      padding: 12px;
+      margin-bottom: 20px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1em;
+    }
+
+    input[type="submit"] {
+      padding: 12px;
+      background-color: #00cec9;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.1em;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #00b894;
+      transform: scale(1.05);
+    }
+
+    .forgot-password,
+    .register-link {
+      text-align: center;
+      margin-top: 10px;
+      font-size: 0.95em;
+    }
+
+    .forgot-password a,
+    .register-link a {
+      color: #81ecec;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .forgot-password a:hover,
+    .register-link a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h2>Login</h2>
+    <form action="/login" method="post">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" required>
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required>
+
+      <input type="submit" value="Login">
+
+      <div class="forgot-password">
+        <p><a href="/forgot">Forgot Password?</a></p>
+      </div>
+
+      <div class="register-link">
+        <p>Don't have an account? <a href="/registera">Create New Account</a></p>
+      </div>
+    </form>
+  </div>
+</body>
+</html> 
+
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SNACKALYZER</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+      background: url('../static/images/so.jpg') no-repeat center center fixed;
+      background-size: cover;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: white;
+    }
+
+    .login-container {
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 40px;
+      border-radius: 15px;
+      width: 350px;
+      box-shadow: 0 0 25px rgba(0,0,0,0.6);
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 1.8em;
+      margin-bottom: 25px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      margin-bottom: 5px;
+      font-weight: bold;
+      color: #f0f0f0;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      padding: 12px;
+      margin-bottom: 20px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1em;
+    }
+
+    input[type="submit"] {
+      padding: 12px;
+      background-color: #00cec9;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.1em;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #00b894;
+      transform: scale(1.05);
+    }
+
+    .forgot-password,
+    .register-link,
+    .google-auth {
+      text-align: center;
+      margin-top: 10px;
+      font-size: 0.95em;
+    }
+
+    .forgot-password a,
+    .register-link a,
+    .google-auth a {
+      color: #81ecec;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .forgot-password a:hover,
+    .register-link a:hover,
+    .google-auth a:hover {
+      text-decoration: underline;
+    }
+
+    .google-btn {
+      margin-top: 20px;
+      background-color: white;
+      color: #444;
+      border: none;
+      padding: 10px;
+      width: 100%;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .google-btn:hover {
+      background-color: #f1f1f1;
+      transform: scale(1.02);
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h2>Login</h2>
+    <form action="/login" method="post">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" required>
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required>
+
+      <input type="submit" value="Login">
+    </form>
+
+   
+    <div class="google-auth">
+      <form action="/login/google" method="get">
+        <button type="submit" class="google-btn">Sign in with Google</button>
+      </form>
+    </div>
+
+    <div class="forgot-password">
+      <p><a href="/forgot">Forgot Password?</a></p>
+    </div>
+    
+    <div class="register-link">
+      <p>Don't have an account? <a href="/registera">Create New Account</a></p>
+    </div>
+  </div>
+</body>
+</html>
+
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login Page</title>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <style>
+      body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: url('../static/images/so.jpg') no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: white;
+    }
+
+
+    .login-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .login-container {
+      background-color: #fff;
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      width: 400px;
+    }
+
+    .login-content {
+      text-align: center;
+    }
+
+    .login-title {
+      margin-bottom: 0.5rem;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .login-subtitle {
+      color: #666;
+      margin-bottom: 1.5rem;
+    }
+
+    .input-field {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+
+    .password-wrapper {
+      position: relative;
+    }
+
+    .toggle-password {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+    }
+
+    .error-text {
+      color: red;
+      font-size: 13px;
+      margin-bottom: 0.5rem;
+    }
+
+    .ForgotPassword {
+      text-align: right;
+      margin-bottom: 1rem;
+      font-size: 14px;
+    }
+
+    .login-btn {
+      width: 100%;
+      padding: 10px;
+      background-color: #4a90e2;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-bottom: 1rem;
+    }
+
+    .oauth-buttons {
+      text-align: center;
+    }
+
+    .buttons_container button {
+      background-color: white;
+      border: 1px solid #ccc;
+      padding: 10px 15px;
+      font-size: 14px;
+      cursor: pointer;
+      border-radius: 8px;
+    }
+
+    .register-link {
+      font-size: 14px;
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-wrapper">
+    <div class="login-container">
+      <div class="login-content">
+        <p class="login-subtitle">Log in to continue your journey with Snackalyzer.</p>
+
+        <form id="login-form">
+          <input type="text" class="input-field" id="username" placeholder="Email or username" required />
+
+          <div class="password-wrapper">
+            <input type="password" class="input-field" id="password" placeholder="Password" required />
+            <span class="toggle-password" onclick="togglePassword()">
+              <i id="toggle-icon" class="fas fa-eye"></i>
+            </span>
+          </div>
+
+          <p class="error-text" id="error-msg"></p>
+
+          <p class="ForgotPassword">
+            <a href="/forgot">Forgot Password?</a>
+          </p>
+
+          <button type="submit" class="login-btn">Log In</button>
+        </form>
+
+        <p class="register-link">
+          New here? <a href="/registera">Create an account</a>
+        </p>
+
+        <div class="oauth-buttons">
+          <div class="buttons_container">
+            <button onclick="window.location.href='http://127.0.0.1:5000/auth/google'">
+              <i class="fab fa-google"></i> Google
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function togglePassword() {
+      const passwordInput = document.getElementById('password');
+      const icon = document.getElementById('toggle-icon');
+      if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        icon.classList.remove('fa-eye');
+        icon.classList.add('fa-eye-slash');
+      } else {
+        passwordInput.type = 'password';
+        icon.classList.remove('fa-eye-slash');
+        icon.classList.add('fa-eye');
+      }
+    }
+
+    document.getElementById('login-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+      const errorMsg = document.getElementById('error-msg');
+
+      if (!username || !password) {
+        errorMsg.textContent = 'Please fill in all fields';
+        return;
+      }
+
+      fetch('http://127.0.0.1:5000/logina', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username, password })
+      })
+      .then(res => {
+        if (!res.ok) return res.json().then(data => { throw new Error(data.message); });
+        return res.json();
+      })
+      .then(data => {
+        alert('Login successful!');
+        window.location.href = '/menua';
+      })
+      .catch(err => {
+        errorMsg.textContent = err.message;
+      });
+    });
+  </script>
+</body>
+</html> -->
+

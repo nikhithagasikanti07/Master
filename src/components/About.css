@@ -1,0 +1,223 @@
+/* AboutUs.css */
+.about-us-page {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: url('public\so.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+    min-height: 100vh; /* Ensure the background covers the entire viewport */
+    display: flex;
+    flex-direction: column;
+  }
+  
+  header {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 15px 0;
+    text-align: center;
+    font-size: 2em;
+    color: #ffffff;
+    text-shadow: 2px 2px 6px black;
+  }
+  
+  nav {
+    display: flex;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 10px 0;
+  }
+  
+  nav a {
+    margin: 0 15px;
+    padding: 10px 18px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  nav a:hover {
+    background-color: #00b894;
+    transform: scale(1.05);
+  }
+  
+  .container3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 160px);
+    text-align: center;
+  }
+  
+  .container3 h1 {
+    font-size: 3em;
+    text-shadow: 2px 2px 8px #000;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+  }
+  
+  h1, h2, h3 {
+    color: #0288d1;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  p {
+    color: rgb(63, 58, 58);
+    margin-bottom: 15px;
+  }
+  
+  .about-container {
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 20px;
+  }
+  
+  .box-container {
+    margin-bottom: 20px;
+  }
+  
+  .box {
+    background-color: white; /* Changed for better readability on background */
+    border: 1px solid #eee;
+    padding: 25px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+  }
+  
+  .box ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .box ul li {
+    margin-bottom: 10px;
+    color: #444;
+  }
+  
+  .box ul li strong {
+    color: #2196f3;
+  }
+  
+  .about-section {
+    margin-top: 30px;
+  }
+  
+  .faq-with-image {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+  }
+  
+  .faq-container {
+    flex: 1 1 100%;
+  }
+  
+  .faq-heading {
+    margin-bottom: 20px;
+  }
+  
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .faq {
+    background: white;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    border: 1px solid #eee;
+  }
+  
+  .faq-question {
+    cursor: pointer;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+  }
+  
+  .faq-question h3 {
+    font-size: 1rem;
+    margin: 0;
+    flex-grow: 1;
+    margin-right: 10px;
+    color: #333; /* Added text color for better visibility */
+  }
+  
+  .toggle-icon {
+    font-size: 1.2rem;
+    color: #777;
+  }
+  
+  .faq p {
+    display: none;
+    font-size: 0.9rem;
+    color: #555;
+    margin: 10px 0 0 0;
+  }
+  
+  .faq.active p {
+    display: block;
+  }
+  
+  .footer {
+    display: flex;
+    justify-content: space-around;
+    background-color: #263238;
+    color: #f0f0f0;
+    padding: 20px;
+    margin-top: 40px;
+    border-top: 1px solid #37474f;
+    flex-wrap: wrap;
+    font-size: 0.8em;
+  }
+  
+  .footer-column {
+    flex: 1 1 200px;
+    padding: 0 15px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .footer-column h3 {
+    border-bottom: 2px solid #e0f7fa;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    color: #e0f7fa;
+  }
+  
+  .footer-column ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .footer-column ul li {
+    margin: 8px 0;
+    transition: color 0.3s;
+    cursor: pointer;
+  }
+  
+  .footer-column ul li:hover {
+    color: #a7ffeb;
+  }
+  
+  @media (max-width: 768px) {
+    .faq-with-image {
+      flex-direction: column;
+    }
+  
+    .footer {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .footer-column {
+      width: 80%;
+    }
+  }

@@ -1,0 +1,383 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+   <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+   <title>About Us - SNACKALYZER</title>
+   <style>
+         body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: url('../static/images/so.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+    }
+
+    header {
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 15px 0;
+      text-align: center;
+      font-size: 2em;
+      color: #ffffff;
+      text-shadow: 2px 2px 6px black;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 10px 0;
+    }
+
+    nav a {
+      margin: 0 12px;
+      padding: 10px 16px;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 6px;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    nav a:hover {
+      background-color: #00cec9;
+      transform: scale(1.05);
+    }
+
+    .container3 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: calc(100vh - 160px);
+      text-align: center;
+    }
+
+    .container3 h1 {
+      font-size: 3em;
+      text-shadow: 2px 2px 8px #000;
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.5);
+      border-radius: 15px;
+    }
+     h1, h2, h3 {
+       color: #0288d1;
+       font-weight: bold;
+       text-align: center;
+     }
+ 
+     p {
+       color: rgb(63, 58, 58);
+       margin-bottom: 15px;
+     }
+ 
+     .about-container {
+       max-width: 1000px;
+       margin: 20px auto;
+       padding: 20px;
+     }
+ 
+     .box-container {
+       margin-bottom: 20px;
+     }
+ 
+     .box {
+       background-color: 0 4px 12px rgba(0, 0, 0, 0.2);;
+       border: 1px solid #eee;
+       padding: 25px;
+       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+       border-radius: 5px;
+     }
+ 
+     .box ul {
+       list-style: none;
+       padding: 0;
+     }
+ 
+     .box ul li {
+       margin-bottom: 10px;
+       color: #444;
+     }
+ 
+     .box ul li strong {
+       color: #2196f3;
+     }
+ 
+     .about-section {
+       margin-top: 30px;
+     }
+ 
+     .faq-with-image {
+       display: flex;
+       gap: 30px;
+       flex-wrap: wrap;
+     }
+ 
+     .faq-container {
+       flex: 1 1 100%;
+     }
+ 
+     .faq-heading {
+       margin-bottom: 20px;
+     }
+ 
+     .faq-list {
+       display: flex;
+       flex-direction: column;
+       gap: 10px;
+     }
+ 
+     .faq {
+       background: white;
+       padding: 15px;
+       border-radius: 5px;
+       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+       border: 1px solid #eee;
+     }
+ 
+     .faq-question {
+       cursor: pointer;
+       font-weight: bold;
+       display: flex;
+       justify-content: space-between;
+       align-items: center;
+       margin-bottom: 5px;
+     }
+ 
+     .faq-question h3 {
+       font-size: 1rem;
+       margin: 0;
+       flex-grow: 1;
+       margin-right: 10px;
+     }
+ 
+     .toggle-icon {
+       font-size: 1.2rem;
+       color: #777;
+     }
+ 
+     .faq p {
+       display: none;
+       font-size: 0.9rem;
+       color: #555;
+       margin: 10px 0 0 0;
+     }
+ 
+     .faq.active p {
+       display: block;
+     }
+ 
+     .footer {
+       display: flex;
+       justify-content: space-around;
+       background-color: #263238;
+       color: #f0f0f0;
+       padding: 20px;
+       margin-top: 40px;
+       border-top: 1px solid #37474f;
+       flex-wrap: wrap;
+       font-size: 0.8em;
+     }
+ 
+     .footer-column {
+       flex: 1 1 200px;
+       padding: 0 15px;
+       margin-bottom: 20px;
+       text-align: center;
+     }
+ 
+     .footer-column h3 {
+       border-bottom: 2px solid #e0f7fa;
+       padding-bottom: 10px;
+       margin-bottom: 15px;
+       color: #e0f7fa;
+     }
+ 
+     .footer-column ul {
+       list-style: none;
+       padding: 0;
+     }
+ 
+     .footer-column ul li {
+       margin: 8px 0;
+       transition: color 0.3s;
+       cursor: pointer;
+     }
+ 
+     .footer-column ul li:hover {
+       color: #a7ffeb;
+     }
+ 
+     @media (max-width: 768px) {
+       .faq-with-image {
+         flex-direction: column;
+       }
+ 
+       .footer {
+         flex-direction: column;
+         align-items: center;
+       }
+ 
+       .footer-column {
+         width: 80%;
+       }
+     }
+   </style>
+ </head>
+ <>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/healtha">Health</a> 
+    <a href="/sola">Solution</a> 
+    <a href="/predicta">Image</a>
+    <a href="/predictb">Text</a>
+    <a href="/predictc">History</a>
+    <a href="/abouta">About</a> 
+    <a href="/logouta">Logout</a>
+  </nav>
+   <div class="about-container">
+     <h1>ABOUT US</h1>
+ 
+     <div class="box-container">
+       <section class="box">
+         <h2>Our Mission</h2>
+         <p>
+           Our mission is to empower individuals with AI-driven nutritional insights,
+           helping them make healthier food choices through innovative technology.
+         </p>
+       </section>
+     </div>
+ 
+     <div class="box-container">
+       <section class="box">
+         <h2>Our Vision</h2>
+         <p>
+           At <strong>SNACKALYZER</strong>, we envision a world where health and nutrition are accessible,
+           personalized, and effortless for everyone.
+         </p>
+         <p>
+           With the power of <strong>AI and machine learning</strong>, we aim to revolutionize how people track
+           calorie intake and understand nutrition.
+         </p>
+       </section>
+     </div>
+ 
+     <div class="box-container">
+       <section class="box">
+         <h2>Our Core Values</h2>
+         <ul>
+           <li><strong>Empower Users:</strong> AI-powered insights for better dietary decisions.</li>
+           <li><strong>Simplify Nutrition:</strong> Smart food recognition for effortless tracking.</li>
+           <li><strong>Promote Wellness:</strong> Support weight loss, muscle gain, and balanced eating.</li>
+         </ul>
+       </section>
+     </div>
+ 
+     <div class="box-container">
+       <section class="box">
+         <h2>Our Commitment</h2>
+         <p>
+           By blending <strong>innovation with nutrition</strong>, we’re building a smarter, healthier future—one meal at a time.
+         </p>
+       </section>
+     </div>
+  
+             <div class="about-section">
+              <div class="faq-with-image">
+                <div class="faq-container">
+                  <h2 class="faq-heading">Frequently Asked Questions</h2>
+                  <div class="faq-list">
+                    <div class="faq">
+                      <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3>What is AI-Powered Calorie and Nutrition Estimation?</h3><span class="toggle-icon">+</span>
+                      </div>
+                      <p>It uses AI to identify food items and estimate their calorie and nutrient content.</p>
+                    </div>
+                    <div class="faq">
+                      <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3>Can users input food images or names manually?</h3><span class="toggle-icon">+</span>
+                      </div>
+                      <p>Yes, users can either upload an image or manually enter the name.</p>
+                    </div>
+                    <div class="faq">
+                      <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3>Is this platform free to use?</h3><span class="toggle-icon">+</span>
+                      </div>
+                      <p>Yes, our platform is free for all users to explore.</p>
+                    </div>
+                    <div class="faq">
+                      <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3>Which AI tool is used in this?</h3><span class="toggle-icon">+</span>
+                      </div>
+                      <p>Convolutional Neural Network (CNN) for food image classification due to its accuracy in visual pattern recognition.</p>
+                    </div>
+                    <div class="faq">
+                      <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3>What kind of foods are supported?</h3><span class="toggle-icon">+</span>
+                      </div>
+                      <p>The system supports common food items available in public datasets or APIs. It may not work accurately with complex or rare dishes.</p>
+                    </div>
+                    <div class="faq">
+                      <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3>Can it identify homemade or mixed dishes?</h3><span class="toggle-icon">+</span>
+                      </div>
+                      <p>Not accurately. The model struggles with mixed or multi-item dishes, especially if they are not visually distinct or labeled.</p>
+                    </div>
+                    <div class="faq">
+                      <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3>How accurate is the calorie estimation?</h3><span class="toggle-icon">+</span>
+                      </div>
+                      <p>For individual food items, the system provides reasonably accurate results (approx. 65–75%) based on standard nutritional databases.</p>
+                    </div>
+                    <div class="faq">
+                      <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3>Can this project be used in mobile apps or health platforms?</h3><span class="toggle-icon">+</span>
+                      </div>
+                      <p>Yes, it can be integrated into mobile apps or web platforms with further development and API support.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+ 
+     <footer class="footer">
+       <div class="footer-column">
+         <h3>Solutions</h3>
+         <ul>
+           <li>Food Recognition API</li>
+           <li>Azumio 360 API</li>
+           <li>Instant Diabetes Test</li>
+           <li>Diabetes Management</li>
+         </ul>
+       </div>
+       <div class="footer-column">
+         <h3>Company</h3>
+         <ul>
+           <li>About</li>
+           <li>Team</li>
+           <li>Jobs</li>
+         </ul>
+       </div>
+       <div class="footer-column">
+         <h3>More</h3>
+         <ul>
+           <li>Contact</li>
+           <li>Blog</li>
+           <li>Privacy Policy & Terms of Use</li>
+         </ul>
+       </div>
+     </footer>
+   </div>
+ 
+   <script>
+     function toggleFAQ(el) {
+       const faq = el.parentElement;
+       const isActive = faq.classList.contains("active");
+       document.querySelectorAll(".faq").forEach(f => f.classList.remove("active"));
+       if (!isActive) faq.classList.add("active");
+     }
+   </script>
+ </body>
+ </html>
+ 

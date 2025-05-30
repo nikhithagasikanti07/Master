@@ -1,0 +1,813 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>SNACKALYZER</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: url('../static/images/so.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+               header {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 15px 0;
+            text-align: center;
+            font-size: 2em;
+            color: #ffffff;
+            text-shadow: 2px 2px 6px black;
+        }
+
+        nav {
+      display: flex;
+      justify-content: center;
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 10px 0;
+    }
+
+    nav a {
+      margin: 0 12px;
+      padding: 10px 16px;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 6px;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    nav a:hover {
+      background-color: #00cec9;
+      transform: scale(1.05);
+    }
+
+        .container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+        }
+
+        .health-form-container {
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            padding: 30px;
+            width: 100%;
+            max-width: 700px;
+            box-sizing: border-box;
+            color: black;
+        }
+
+        .form-step {
+            text-align: center;
+        }
+
+        .form-question {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .form-options {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .form-checkbox-label,
+        .form-radio-label {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 500px;
+            background-color: #f8f8f8;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 12px 18px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            color: black;
+        }
+
+        .form-input {
+            width: 100%;
+            max-width: 500px;
+            padding: 10px 15px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-sizing: border-box;
+        }
+
+        .form-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .form-nav-button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            color: white;
+        }
+
+        .form-nav-back {
+            background-color: #bbb;
+            color: black;
+        }
+
+        .form-nav-next {
+            background-color: #5cb85c;
+        }
+
+        .form-gender-options {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .form-gender-button {
+            background-color: #f0f0f0;
+            color: black;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .form-gender-button:hover {
+            background-color: #ddd;
+        }
+
+        .form-label {
+            display: block;
+            margin-top: 10px;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<header></header>
+
+<nav>
+    <a href="/menua">Home</a>
+    <a href="/healtha">Health</a> 
+    <a href="/sola">Solution</a> 
+    <a href="/predicta">Image</a>
+    <a href="/predictb">Text</a>
+    <a href="/predictc">History</a>
+    <a href="/abouta">About</a> 
+    <a href="/logouta">Logout</a>
+</nav>
+
+<div class="container">
+    <div class="health-form-container">
+        <div class="form-step" id="welcome">
+            <h2 style="color: black;">what brings you here?</h2>
+            <div class="form-options">
+                <label class="form-checkbox-label"><span>Losing weight</span><input type="checkbox" class="form-checkbox"></label>
+                <label class="form-checkbox-label"><span>Gaining muscle and losing fat</span><input type="checkbox" class="form-checkbox"></label>
+                <label class="form-checkbox-label"><span>Gaining muscle, losing fat is secondary</span><input type="checkbox" class="form-checkbox"></label>
+                <label class="form-checkbox-label"><span>Eating healthier without losing weight</span><input type="checkbox" class="form-checkbox"></label>
+            </div>
+            <div class="form-navigation">
+                <button class="form-nav-button form-nav-next">Next →</button>
+            </div>
+        </div>
+
+        <div class="form-step" id="muscleOrWeightGoal" style="display: none;">
+            <h2 class="form-question">What are your reasons for this goal?</h2>
+            <div class="form-options">
+                <label class="form-checkbox-label"><span>Feel better in my body</span><input type="checkbox" class="form-checkbox"></label>
+                <label class="form-checkbox-label"><span>Be healthier</span><input type="checkbox" class="form-checkbox"></label>
+                <label class="form-checkbox-label"><span>Get in shape</span><input type="checkbox" class="form-checkbox"></label>
+                <label class="form-checkbox-label"><span>Stop people from bothering me</span><input type="checkbox" class="form-checkbox"></label>
+                <label class="form-checkbox-label"><span>Fit in my old clothes</span><input type="checkbox" class="form-checkbox"></label>
+                <label class="form-checkbox-label"><span>Be more energetic</span><input type="checkbox" class="form-checkbox"></label>
+                <label class="form-checkbox-label"><span>Live longer</span><input type="checkbox" class="form-checkbox"></label>
+                <label class="form-checkbox-label"><span>For medical reason</span><input type="checkbox" class="form-checkbox"></label>
+                <label class="form-checkbox-label"><span>Other reasons</span><input type="checkbox" class="form-checkbox"></label>
+            </div>
+            <div class="form-navigation">
+                <button class="form-nav-button form-nav-back">← Back</button>
+                <button class="form-nav-button form-nav-next">Next →</button>
+            </div>
+        </div>
+
+        <div class="form-step" id="motivationLevel" style="display: none;">
+            <h2 class="form-question">How motivated are you to achieve your goal?</h2>
+            <div class="form-options">
+                <label class="form-radio-label"><span>Very motivated</span><input type="radio" name="motivation" class="form-radio"></label>
+                <label class="form-radio-label"><span>Quite motivated</span><input type="radio" name="motivation" class="form-radio"></label>
+                <label class="form-radio-label"><span>Motivated</span><input type="radio" name="motivation" class="form-radio"></label>
+                <label class="form-radio-label"><span>Not motivated</span><input type="radio" name="motivation" class="form-radio"></label>
+                <label class="form-radio-label"><span>Not motivated at all</span><input type="radio" name="motivation" class="form-radio"></label>
+            </div>
+            <div class="form-navigation">
+                <button class="form-nav-button form-nav-back">← Back</button>
+                <button class="form-nav-button form-nav-next">Next →</button>
+            </div>
+        </div>
+
+        <div class="form-step" id="willingToDo" style="display: none;">
+            <h2 class="form-question">What are you willing to do to achieve your goal?</h2>
+            <div class="form-options">
+                <label class="form-checkbox-label"><span>Fast</span><input type="checkbox" class="form-checkbox"></label>
+                <label class="form-checkbox-label"><span>Follow a restrictive diet</span><input type="checkbox" class="form-checkbox"></label>
+                <label class="form-checkbox-label"><span>Do some physical activity</span><input type="checkbox" class="form-checkbox"></label>
+                <label class="form-checkbox-label"><span>Count calories</span><input type="checkbox" class="form-checkbox"></label>
+            </div>
+            <div class="form-navigation">
+                <button class="form-nav-button form-nav-back">← Back</button>
+                <button class="form-nav-button form-nav-next">Next →</button>
+            </div>
+        </div>
+
+        <div class="form-step" id="profile" style="display: none;">
+            <h2 class="form-question">Tell us about yourself</h2>
+            <div class="form-gender-options">
+                <label class="form-checkbox-label"><span>Male</span><input type="checkbox" class="form-checkbox"></label>
+                <label class="form-checkbox-label"><span>Female</span><input type="checkbox" class="form-checkbox"></label>
+                <label class="form-checkbox-label"><span>Non binary</span><input type="checkbox" class="form-checkbox"></label>
+                <label class="form-checkbox-label"><span>Prefer not to say</span><input type="checkbox" class="form-checkbox"></label>
+                <label class="form-checkbox-label"><span>Other</span><input type="checkbox" class="form-checkbox"></label>
+            </div>
+            <label class="form-label">Date of Birth:</label>
+            <input type="date" class="form-input">
+            <label class="form-label">Height (cm)</label>
+            <input type="number" class="form-input">
+            <label class="form-label">Weight (kg)</label>
+            <input type="number" class="form-input">
+            <div class="form-navigation">
+                <button class="form-nav-button form-nav-back">← Back</button>
+                <button class="form-nav-button form-nav-next">Next →</button>
+            </div>
+        </div>
+
+        <div class="form-step" id="dietaryRestrictions" style="display: none;">
+            <h2 class="form-question">Do you have any dietary restrictions or food allergies?</h2>
+            <div class="form-options">
+                <label class="form-checkbox-label"><span>Yes</span><input type="checkbox" class="form-checkbox"></label>
+                <label class="form-checkbox-label"><span>No</span><input type="checkbox" class="form-checkbox"></label>
+            </div>
+            <div class="form-navigation">
+                <button class="form-nav-button form-nav-back">← Back</button>
+                <button class="form-nav-button form-nav-next">Next →</button>
+            </div>
+        </div>
+
+        <div class="form-step" id="dietaryOptions" style="display: none;">
+            <h2 class="form-question">Which restrictions/allergies do you have?</h2>
+            <div class="form-options">
+                <label class="form-checkbox-label"><span>Veganism</span><input type="checkbox" class="form-checkbox"></label>
+                <label class="form-checkbox-label"><span>Vegetarianism</span><input type="checkbox" class="form-checkbox"></label>
+                <label class="form-checkbox-label"><span>Pescetarianism</span><input type="checkbox" class="form-checkbox"></label>
+                <label class="form-checkbox-label"><span>Gluten-Free</span><input type="checkbox" class="form-checkbox"></label>
+                <label class="form-checkbox-label"><span>Lactose intolerant</span><input type="checkbox" class="form-checkbox"></label>
+                <label class="form-checkbox-label"><span>Nut allergy</span><input type="checkbox" class="form-checkbox"></label>
+                <label class="form-checkbox-label"><span>Other</span><input type="checkbox" class="form-checkbox"></label>
+                <label class="form-checkbox-label"><span>None</span><input type="checkbox" class="form-checkbox"></label>
+            </div>
+            <div class="form-navigation">
+                <button class="form-nav-button form-nav-back">← Back</button>
+                <button class="form-nav-button form-nav-next">Next →</button>
+            </div>
+        </div>
+
+        <div class="form-step" id="medicalConditions" style="display: none;">
+            <h2 class="form-question">Have you ever had any of the following conditions?</h2>
+            <div class="form-options">
+                <label class="form-checkbox-label"><span>Diabetes</span><input type="checkbox" class="form-checkbox"></label>
+                <label class="form-checkbox-label"><span>Hypertension or high blood pressure</span><input type="checkbox" class="form-checkbox"></label>
+                <label class="form-checkbox-label"><span>Depression</span><input type="checkbox" class="form-checkbox"></label>
+                <label class="form-checkbox-label"><span>Eating disorders (Anorexia, Bulimia)</span><input type="checkbox" class="form-checkbox"></label>
+                <label class="form-checkbox-label"><span>Heart condition</span><input type="checkbox" class="form-checkbox"></label>
+                <label class="form-checkbox-label"><span>Kidney disease</span><input type="checkbox" class="form-checkbox"></label>
+                <label class="form-checkbox-label"><span>Liver disease</span><input type="checkbox" class="form-checkbox"></label>
+                <label class="form-checkbox-label"><span>Other</span><input type="checkbox" class="form-checkbox"></label>
+                <label class="form-checkbox-label"><span>None</span><input type="checkbox" class="form-checkbox"></label>
+            </div>
+            <div class="form-navigation">
+                <button class="form-nav-button form-nav-back">← Back</button>
+                <button class="form-nav-button form-nav-next">Finish</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const steps = ['welcome', 'muscleOrWeightGoal', 'motivationLevel', 'willingToDo', 'profile', 'dietaryRestrictions', 'dietaryOptions', 'medicalConditions'];
+    let currentStepIndex = 0;
+    const formSteps = document.querySelectorAll('.form-step');
+    const nextButtons = document.querySelectorAll('.form-nav-next');
+    const backButtons = document.querySelectorAll('.form-nav-back');
+
+    function showStep(index) {
+        formSteps.forEach((step, i) => {
+            step.style.display = i === index ? 'block' : 'none';
+        });
+    }
+
+    function nextStep() {
+        if (currentStepIndex < steps.length - 1) {
+            currentStepIndex++;
+            showStep(currentStepIndex);
+        } else {
+            // Redirect to /menua when the form is finished
+            window.location.href = "/menua";
+        }
+    }
+
+    function backStep() {
+        if (currentStepIndex > 0) {
+            currentStepIndex--;
+            showStep(currentStepIndex);
+        }
+    }
+
+    nextButtons.forEach(button => button.addEventListener('click', nextStep));
+    backButtons.forEach(button => button.addEventListener('click', backStep));
+
+    showStep(currentStepIndex);
+</script>
+
+
+</body>
+</html>  
+
+ -->
+
+
+
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>SNACKALYZER</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: url('../static/images/so.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        header {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 15px 0;
+            text-align: center;
+            font-size: 2em;
+            color: #ffffff;
+            text-shadow: 2px 2px 6px black;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 10px 0;
+        }
+
+        nav a {
+            margin: 0 12px;
+            padding: 10px 16px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 6px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        nav a:hover {
+            background-color: #00cec9;
+            transform: scale(1.05);
+        }
+
+        .container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+        }
+
+        .health-form-container {
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            padding: 30px;
+            width: 100%;
+            max-width: 700px;
+            box-sizing: border-box;
+            color: black; /* Changed to black for better contrast on form */
+            background-color: rgba(255, 255, 255, 0.9); /* Added a slight white background for the form */
+        }
+
+        .form-step {
+            text-align: center;
+        }
+
+        .form-question {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .form-options {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .form-checkbox-label,
+        .form-radio-label {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 500px;
+            background-color: #f8f8f8;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 12px 18px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            color: black;
+        }
+
+        .form-input {
+            width: 100%;
+            max-width: 500px;
+            padding: 10px 15px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-sizing: border-box;
+        }
+
+        .form-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .form-nav-button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            color: white;
+            transition: background-color 0.3s ease;
+        }
+
+        .form-nav-back {
+            background-color: #bbb;
+            color: black;
+        }
+
+        .form-nav-next {
+            background-color: #5cb85c;
+        }
+
+        .form-nav-button:hover {
+            opacity: 0.9;
+        }
+
+        .form-gender-options {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .form-gender-button {
+            background-color: #f0f0f0;
+            color: black;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .form-gender-button:hover {
+            background-color: #ddd;
+        }
+
+        .form-label {
+            display: block;
+            margin-top: 10px;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .completion-options {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .completion-option-button {
+            padding: 15px 25px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            color: white;
+            text-decoration: none; /* For anchor tags */
+            transition: background-color 0.3s ease;
+            display: block; /* Make anchor tags behave like blocks */
+            text-align: center;
+        }
+
+        .completion-option-button.diet-apps {
+            background-color: #aeb7c2; /* Blue */
+        }
+
+        .completion-option-button.diet-apps:hover {
+            background-color: #aeb7c2;
+        }
+
+        .completion-option-button.home-page {
+            background-color: #6c757d; /* Gray */
+        }
+
+        .completion-option-button.home-page:hover {
+            background-color: #5a6268;
+        }
+    </style>
+</head>
+<body>
+
+<header>SNACKALYZER</header>
+
+<nav>
+    <a href="/menua">Home</a>
+    <a href="/healtha">Health</a>
+    <a href="/sola">Solution</a>
+    <a href="/predicta">Image</a>
+    <a href="/predictb">Text</a>
+    <a href="/predictc">History</a>
+    <a href="/abouta">About</a>
+    <a href="/logouta">Logout</a>
+</nav>
+
+<div class="container">
+    <div class="health-form-container">
+        <div class="form-step" id="welcome">
+            <h2 style="color: black;">What brings you here?</h2>
+            <div class="form-options">
+                <label class="form-checkbox-label"><span>Losing weight</span><input type="checkbox" class="form-checkbox"></label>
+                <label class="form-checkbox-label"><span>Gaining muscle and losing fat</span><input type="checkbox" class="form-checkbox"></label>
+                <label class="form-checkbox-label"><span>Gaining muscle, losing fat is secondary</span><input type="checkbox" class="form-checkbox"></label>
+                <label class="form-checkbox-label"><span>Eating healthier without losing weight</span><input type="checkbox" class="form-checkbox"></label>
+            </div>
+            <div class="form-navigation">
+                <button class="form-nav-button form-nav-next">Next →</button>
+            </div>
+        </div>
+
+        <div class="form-step" id="muscleOrWeightGoal" style="display: none;">
+            <h2 class="form-question">What are your reasons for this goal?</h2>
+            <div class="form-options">
+                <label class="form-checkbox-label"><span>Feel better in my body</span><input type="checkbox" class="form-checkbox"></label>
+                <label class="form-checkbox-label"><span>Be healthier</span><input type="checkbox" class="form-checkbox"></label>
+                <label class="form-checkbox-label"><span>Get in shape</span><input type="checkbox" class="form-checkbox"></label>
+                <label class="form-checkbox-label"><span>Stop people from bothering me</span><input type="checkbox" class="form-checkbox"></label>
+                <label class="form-checkbox-label"><span>Fit in my old clothes</span><input type="checkbox" class="form-checkbox"></label>
+                <label class="form-checkbox-label"><span>Be more energetic</span><input type="checkbox" class="form-checkbox"></label>
+                <label class="form-checkbox-label"><span>Live longer</span><input type="checkbox" class="form-checkbox"></label>
+                <label class="form-checkbox-label"><span>For medical reason</span><input type="checkbox" class="form-checkbox"></label>
+                <label class="form-checkbox-label"><span>Other reasons</span><input type="checkbox" class="form-checkbox"></label>
+            </div>
+            <div class="form-navigation">
+                <button class="form-nav-button form-nav-back">← Back</button>
+                <button class="form-nav-button form-nav-next">Next →</button>
+            </div>
+        </div>
+
+        <div class="form-step" id="motivationLevel" style="display: none;">
+            <h2 class="form-question">How motivated are you to achieve your goal?</h2>
+            <div class="form-options">
+                <label class="form-radio-label"><span>Very motivated</span><input type="radio" name="motivation" class="form-radio"></label>
+                <label class="form-radio-label"><span>Quite motivated</span><input type="radio" name="motivation" class="form-radio"></label>
+                <label class="form-radio-label"><span>Motivated</span><input type="radio" name="motivation" class="form-radio"></label>
+                <label class="form-radio-label"><span>Not motivated</span><input type="radio" name="motivation" class="form-radio"></label>
+                <label class="form-radio-label"><span>Not motivated at all</span><input type="radio" name="motivation" class="form-radio"></label>
+            </div>
+            <div class="form-navigation">
+                <button class="form-nav-button form-nav-back">← Back</button>
+                <button class="form-nav-button form-nav-next">Next →</button>
+            </div>
+        </div>
+
+        <div class="form-step" id="willingToDo" style="display: none;">
+            <h2 class="form-question">What are you willing to do to achieve your goal?</h2>
+            <div class="form-options">
+                <label class="form-checkbox-label"><span>Fast</span><input type="checkbox" class="form-checkbox"></label>
+                <label class="form-checkbox-label"><span>Follow a restrictive diet</span><input type="checkbox" class="form-checkbox"></label>
+                <label class="form-checkbox-label"><span>Do some physical activity</span><input type="checkbox" class="form-checkbox"></label>
+                <label class="form-checkbox-label"><span>Count calories</span><input type="checkbox" class="form-checkbox"></label>
+            </div>
+            <div class="form-navigation">
+                <button class="form-nav-button form-nav-back">← Back</button>
+                <button class="form-nav-button form-nav-next">Next →</button>
+            </div>
+        </div>
+
+        <div class="form-step" id="profile" style="display: none;">
+            <h2 class="form-question">Tell us about yourself</h2>
+            <div class="form-gender-options">
+                <label class="form-checkbox-label"><span>Male</span><input type="checkbox" class="form-checkbox"></label>
+                <label class="form-checkbox-label"><span>Female</span><input type="checkbox" class="form-checkbox"></label>
+                <label class="form-checkbox-label"><span>Non binary</span><input type="checkbox" class="form-checkbox"></label>
+                <label class="form-checkbox-label"><span>Prefer not to say</span><input type="checkbox" class="form-checkbox"></label>
+                <label class="form-checkbox-label"><span>Other</span><input type="checkbox" class="form-checkbox"></label>
+            </div>
+            <label class="form-label">Date of Birth:</label>
+            <input type="date" class="form-input">
+            <label class="form-label">Height (cm)</label>
+            <input type="number" class="form-input">
+            <label class="form-label">Weight (kg)</label>
+            <input type="number" class="form-input">
+            <div class="form-navigation">
+                <button class="form-nav-button form-nav-back">← Back</button>
+                <button class="form-nav-button form-nav-next">Next →</button>
+            </div>
+        </div>
+
+        <div class="form-step" id="dietaryRestrictions" style="display: none;">
+            <h2 class="form-question">Do you have any dietary restrictions or food allergies?</h2>
+            <div class="form-options">
+                <label class="form-checkbox-label"><span>Yes</span><input type="checkbox" class="form-checkbox"></label>
+                <label class="form-checkbox-label"><span>No</span><input type="checkbox" class="form-checkbox"></label>
+            </div>
+            <div class="form-navigation">
+                <button class="form-nav-button form-nav-back">← Back</button>
+                <button class="form-nav-button form-nav-next">Next →</button>
+            </div>
+        </div>
+
+        <div class="form-step" id="dietaryOptions" style="display: none;">
+            <h2 class="form-question">Which restrictions/allergies do you have?</h2>
+            <div class="form-options">
+                <label class="form-checkbox-label"><span>Veganism</span><input type="checkbox" class="form-checkbox"></label>
+                <label class="form-checkbox-label"><span>Vegetarianism</span><input type="checkbox" class="form-checkbox"></label>
+                <label class="form-checkbox-label"><span>Pescetarianism</span><input type="checkbox" class="form-checkbox"></label>
+                <label class="form-checkbox-label"><span>Gluten-Free</span><input type="checkbox" class="form-checkbox"></label>
+                <label class="form-checkbox-label"><span>Lactose intolerant</span><input type="checkbox" class="form-checkbox"></label>
+                <label class="form-checkbox-label"><span>Nut allergy</span><input type="checkbox" class="form-checkbox"></label>
+                <label class="form-checkbox-label"><span>Other</span><input type="checkbox" class="form-checkbox"></label>
+                <label class="form-checkbox-label"><span>None</span><input type="checkbox" class="form-checkbox"></label>
+            </div>
+            <div class="form-navigation">
+                <button class="form-nav-button form-nav-back">← Back</button>
+                <button class="form-nav-button form-nav-next">Next →</button>
+            </div>
+        </div>
+
+        <div class="form-step" id="medicalConditions" style="display: none;">
+            <h2 class="form-question">Have you ever had any of the following conditions?</h2>
+            <div class="form-options">
+                <label class="form-checkbox-label"><span>Diabetes</span><input type="checkbox" class="form-checkbox"></label>
+                <label class="form-checkbox-label"><span>Hypertension or high blood pressure</span><input type="checkbox" class="form-checkbox"></label>
+                <label class="form-checkbox-label"><span>Depression</span><input type="checkbox" class="form-checkbox"></label>
+                <label class="form-checkbox-label"><span>Eating disorders (Anorexia, Bulimia)</span><input type="checkbox" class="form-checkbox"></label>
+                <label class="form-checkbox-label"><span>Heart condition</span><input type="checkbox" class="form-checkbox"></label>
+                <label class="form-checkbox-label"><span>Kidney disease</span><input type="checkbox" class="form-checkbox"></label>
+                <label class="form-checkbox-label"><span>Liver disease</span><input type="checkbox" class="form-checkbox"></label>
+                <label class="form-checkbox-label"><span>Other</span><input type="checkbox" class="form-checkbox"></label>
+                <label class="form-checkbox-label"><span>None</span><input type="checkbox" class="form-checkbox"></label>
+            </div>
+            <div class="form-navigation">
+                <button class="form-nav-button form-nav-back">← Back</button>
+                <button class="form-nav-button form-nav-next" id="finishButton">Finish</button>
+            </div>
+        </div>
+
+        <div class="form-step" id="completionStep" style="display: none;">
+            <h2 class="form-question">Thank you for completing the health survey!</h2>
+            <p>What would you like to do next?</p>
+            <div class="completion-options">
+                <a href="https://play.google.com/store/search?q=diet+plan+app&c=apps" target="_blank" class="completion-option-button diet-apps">
+                    Explore Diet Plan Apps (Google Play)
+                </a>
+                <a href="https://apps.apple.com/us/collection/best-health-fitness-apps/id1527715017" target="_blank" class="completion-option-button diet-apps">
+                    Explore Diet Plan Apps (Apple App Store)
+                </a>
+
+                <a href="https://www.myfitnesspal.com/" target="_blank" class="completion-option-button diet-apps">
+                    MyFitnessPal Website
+                </a>
+                <a href="https://www.noom.com/" target="_blank" class="completion-option-button diet-apps">
+                    Noom Website
+                </a>
+                <a href="https://lifesum.com/" target="_blank" class="completion-option-button diet-apps">
+                    Lifesum Website
+                </a>
+                <a href="https://www.yazio.com/en" target="_blank" class="completion-option-button diet-apps">
+                    YAZIO Website
+                </a>
+                 <a href="https://www.loseit.com/" target="_blank" class="completion-option-button diet-apps">
+                    Lose It! Website
+                </a>
+                <a href="https://cronometer.com/" target="_blank" class="completion-option-button diet-apps">
+                    Cronometer Website
+                </a>
+
+                <a href="https://www.eatingwell.com/category/4286/meal-plans/" target="_blank" class="completion-option-button diet-apps">
+                    EatingWell Meal Plans
+                </a>
+                <a href="https://www.mayoclinic.org/healthy-lifestyle/weight-loss/in-depth/mayo-clinic-diet/art-20045460" target="_blank" class="completion-option-button diet-apps">
+                    Mayo Clinic Diet
+                </a>
+                <a href="https://www.webmd.com/diet/default.htm" target="_blank" class="completion-option-button diet-apps">
+                    WebMD Diet & Weight Mgmt.
+                </a>
+                <a href="https://nutritionsource.hsph.harvard.edu/healthy-eating-plate/" target="_blank" class="completion-option-button diet-apps">
+                    Harvard Nutrition Source
+                </a>
+
+                <a href="/menua" class="completion-option-button home-page">
+                    Go back to Home
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const steps = ['welcome', 'muscleOrWeightGoal', 'motivationLevel', 'willingToDo', 'profile', 'dietaryRestrictions', 'dietaryOptions', 'medicalConditions', 'completionStep'];
+    let currentStepIndex = 0;
+    const formSteps = document.querySelectorAll('.form-step');
+    const nextButtons = document.querySelectorAll('.form-nav-next');
+    const backButtons = document.querySelectorAll('.form-nav-back');
+    const finishButton = document.getElementById('finishButton');
+
+    function showStep(index) {
+        formSteps.forEach((step, i) => {
+            step.style.display = i === index ? 'block' : 'none';
+        });
+    }
+
+    function nextStep() {
+        if (currentStepIndex < steps.length - 1) {
+            currentStepIndex++;
+            showStep(currentStepIndex);
+        }
+    }
+
+    function backStep() {
+        if (currentStepIndex > 0) {
+            currentStepIndex--;
+            showStep(currentStepIndex);
+        }
+    }
+
+    // Event listener for the "Finish" button specifically
+    finishButton.addEventListener('click', () => {
+        currentStepIndex = steps.indexOf('completionStep'); // Go directly to the completion step
+        showStep(currentStepIndex);
+    });
+
+    // Attach event listeners to all 'Next' and 'Back' buttons except the final 'Finish' button
+    nextButtons.forEach(button => {
+        if (button.id !== 'finishButton') {
+            button.addEventListener('click', nextStep);
+        }
+    });
+    backButtons.forEach(button => button.addEventListener('click', backStep));
+
+    // Initialize the form by showing the first step
+    showStep(currentStepIndex);
+</script>
+
+</body>
+</html>

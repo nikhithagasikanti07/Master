@@ -1,0 +1,91 @@
+/* Login.css */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  
+    background: url('public\so.jpg') no-repeat center center fixed;
+    background-size: cover;
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: white;
+  }
+  
+  .login-container {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 40px;
+    border-radius: 15px;
+    width: 350px;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
+  }
+  
+  header {
+    text-align: center;
+    font-size: 2.2em;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 6px #000;
+  }
+  
+  h2 {
+    text-align: center;
+    font-size: 1.8em;
+    margin-bottom: 25px;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #f0f0f0;
+  }
+  
+  input[type="text"],
+  input[type="password"] {
+    padding: 12px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+  }
+  
+  input[type="submit"] {
+    padding: 12px;
+    background-color: #00cec9;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: #00b894;
+    transform: scale(1.05);
+  }
+  
+  .forgot-password,
+  .register-link {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 0.95em;
+  }
+  
+  .forgot-password a,
+  .register-link a {
+    color: #81ecec;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .forgot-password a:hover,
+  .register-link a:hover {
+    text-decoration: underline;
+  }
